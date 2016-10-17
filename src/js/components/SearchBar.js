@@ -26,6 +26,9 @@ export default class SearchBar extends React.Component {
         return(
             <form>
                 <input type = "text" placeholder = "Search City" onKeyPress={this.handleChange} />
+                <input type = "text" placeholder = "Min" />
+                <input type = "text" placeholder = "Max" />
+                <input type = "text" placeholder = "Size" />
             </form>
         );
     }
