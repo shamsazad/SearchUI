@@ -8,27 +8,37 @@ const url = 'http://localhost:8081/yuul/search/';
 export default class SearchBar extends React.Component {
     constructor(props) {
         super(props);
-        this.handleChange.bind(this);
-    }
-    handleChange (e) {
-        if (e.key === 'Enter') {
-            const city = e.target.value;
-            axios.post(url, {
-                location: city,
-            }).then(function (response) {
-                dispatch(addPost(response.body))
-            }).catch(function (response) {
-                request = response;
-            });
+        this.state = {
+            location: "Montreal",
+            min: 0,
+            max: "",
+            size:""
         }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(e) {
+        this.setState({[e.target.name]:e.target.value});
+    }
+    handleSubmit () {
+        console.log(this.state);
+        axios.post(url,
+            this.state
+        ).then(function (response) {
+            dispatch(addPost(response.body))
+        }).catch(function (response) {
+            request = response;
+        });
     }
     render() {
         return(
             <form>
-                <input type = "text" placeholder = "Search City" onKeyPress={this.handleChange} />
-                <input type = "text" placeholder = "Min" />
-                <input type = "text" placeholder = "Max" />
-                <input type = "text" placeholder = "Size" />
+                <input type = "text" name = "location" placeholder = "Search City" onChange={this.handleChange}/>
+                <input type = "text" name = "min" placeholder = "Min($)" onChange={this.handleChange}/>
+                <input type = "text" name = "max" placeholder = "Max($)" onChange={this.handleChange}/>
+                <input type = "text" name = "size" placeholder = "Size(no. of rooms)" onChange={this.handleChange}/>
+                <input type = "submit" value="Search" onClick={this.handleSubmit}/>
             </form>
         );
     }
