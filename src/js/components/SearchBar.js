@@ -10,9 +10,9 @@ export default class SearchBar extends React.Component {
         super(props);
         this.state = {
             location: "Montreal",
-            min: 0,
-            max: "",
-            size:""
+            numOfPeople:"",
+            price: 0,
+            rooms: 1,
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,10 +34,10 @@ export default class SearchBar extends React.Component {
     render() {
         return(
             <form>
-                <input type = "text" name = "location" placeholder = "Search City" onChange={this.handleChange}/>
-                <input type = "text" name = "min" placeholder = "Min($)" onChange={this.handleChange}/>
-                <input type = "text" name = "max" placeholder = "Max($)" onChange={this.handleChange}/>
-                <input type = "text" name = "size" placeholder = "Size(no. of rooms)" onChange={this.handleChange}/>
+                <input type = "text" name = "location" placeholder = "Search City" required onChange={this.handleChange}/>
+                <input type = "number" min="1" name = "numberOfPeople" placeholder = "Number of People" onChange={this.handleChange}/>
+                <input type ="range" name="price" min="0" max="10000" step="100" value={this.props.value} onChange={this.handleChange} />
+                <input type="number" min="1" name="rooms" placeholder="rooms" onChange={this.handleChange}/>
                 <input type = "submit" value="Search" onClick={this.handleSubmit}/>
             </form>
         );
