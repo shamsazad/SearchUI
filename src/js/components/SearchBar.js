@@ -3,8 +3,18 @@
  */
 import React from "react";
 import axios from "axios";
+import Radium from 'radium';
 const url = 'http://localhost:8081/yuul/search/';
 
+const styles = {
+    searchbar: {
+        width: '700px',
+        marginLeft: '100px',
+        marginTop: '100px',
+    }
+}
+
+@Radium
 export default class SearchBar extends React.Component {
     constructor(props) {
         super(props);
@@ -34,11 +44,11 @@ export default class SearchBar extends React.Component {
     render() {
         return(
             <form>
-                <input type = "text" name = "location" placeholder = "Search City" required onChange={this.handleChange}/>
+                <input type = "text" name = "location" placeholder = "Search City" required onChange={this.handleChange} style={styles.searchbar} />
                 <input type = "number" min="1" name = "numberOfPeople" placeholder = "Number of People" onChange={this.handleChange}/>
+                <input type = "submit" value="Search" onClick={this.handleSubmit}/>
                 <input type ="range" name="price" min="0" max="10000" step="100" value={this.props.value} onChange={this.handleChange} />
                 <input type="number" min="1" name="rooms" placeholder="rooms" onChange={this.handleChange}/>
-                <input type = "submit" value="Search" onClick={this.handleSubmit}/>
             </form>
         );
     }
