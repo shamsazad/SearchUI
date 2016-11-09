@@ -10,7 +10,6 @@ const styles = {
     searchbar: {
         width: '700px',
         marginLeft: '100px',
-        marginTop: '100px',
     }
 }
 
@@ -47,8 +46,6 @@ export default class SearchBar extends React.Component {
                 <input type = "text" name = "location" placeholder = "Search City" required onChange={this.handleChange} style={styles.searchbar} />
                 <input type = "number" min="1" name = "numberOfPeople" placeholder = "Number of People" onChange={this.handleChange}/>
                 <input type = "submit" value="Search" onClick={this.handleSubmit}/>
-                <input type ="range" name="price" min="0" max="10000" step="100" value={this.props.value} onChange={this.handleChange} />
-                <input type="number" min="1" name="rooms" placeholder="rooms" onChange={this.handleChange}/>
             </form>
         );
     }

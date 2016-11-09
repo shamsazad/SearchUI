@@ -6,8 +6,7 @@ import Radium from "radium";
 
 const styles = {
     base: {
-        postion: 'absolute',
-        bottom: 0,
+        display: 'block',
         height: '100px',
         width: '100%',
     }
