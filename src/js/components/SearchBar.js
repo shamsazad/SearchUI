@@ -20,9 +20,7 @@ export default class SearchBar extends React.Component {
         super(props);
         this.state = {
             location: "Montreal",
-            numOfPeople:"",
-            price: 0,
-            rooms: 1,
+            startDate: "",
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
