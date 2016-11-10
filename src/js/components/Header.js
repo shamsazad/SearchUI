@@ -8,7 +8,7 @@ import Radium from 'radium';
 
 const styles = {
     base: {
-        background: 'gray',
+        background: 'lightblue',
         border: 0,
         borderRadius: 0,
         color: 'white',

@@ -9,7 +9,8 @@ const url = 'http://localhost:8081/yuul/search/';
 const styles = {
     searchbar: {
         width: '700px',
-        marginLeft: '100px',
+        marginLeft: 200,
+        marginTop: 100,
     }
 }
 
@@ -44,7 +45,7 @@ export default class SearchBar extends React.Component {
         return(
             <form>
                 <input type = "text" name = "location" placeholder = "Search City" required onChange={this.handleChange} style={styles.searchbar} />
-                <input type = "number" min="1" name = "numberOfPeople" placeholder = "Number of People" onChange={this.handleChange}/>
+                <input type = "date" name = "startDate" placeholder = "Start Date" onChange={this.handleChange}/>
                 <input type = "submit" value="Search" onClick={this.handleSubmit}/>
             </form>
         );
