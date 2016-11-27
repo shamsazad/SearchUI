@@ -6,13 +6,10 @@ import Radium from 'radium';
 
 const styles = {
     base: {
-        position: 'absolute',
-        top: 0,
-        right: 0,
-        fontSize: 20,
+
     },
     each: {
-        marginRight: 20
+
     }
 }
 
@@ -20,10 +17,10 @@ const styles = {
 export default class Login extends React.Component {
     render() {
         return (
-            <div style={styles.base}>
-                <a href="Login" style={styles.each}>Login</a>
-                <a href="Signup.html" style={styles.each}>Sign UP </a>
-                <a href="Help" style={styles.each}>Help</a>
+            <div className="login">
+                <a href="Login" >Login</a>
+                <a href="Signup.html" >Sign UP </a>
+                <a href="Help" >Help</a>
             </div>
         );
     }
