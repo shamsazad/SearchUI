@@ -8,10 +8,12 @@ import Login from "./Header/Login"
 export default class Header extends React.Component {
     render() {
         return (
-          <div className="header">
-              <Title />
-              <Login />
-          </div>
+            <nav className="navbar navbar-fixed-top navbar-light bg-faded">
+                    <a className="navbar-brand" href="#">
+                        <Title />
+                    </a>
+                <Login/>
+            </nav>
         );
     }
 }

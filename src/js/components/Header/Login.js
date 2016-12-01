@@ -6,11 +6,11 @@ import React from "react";
 export default class Login extends React.Component {
     render() {
         return (
-            <div className="login">
-                <a href="Login" >Login</a>
-                <a href="Signup.html" >Sign UP </a>
-                <a href="Help" >Help</a>
-            </div>
+            <ul className="nav navbar-nav float-xs-right">
+                <li className="nav-item"><a className="nav-link" href="Login" >Login</a></li>
+                <li className="nav-item"><a className="nav-link" href="Signup.html" >Sign UP </a></li>
+                <li className="nav-item"><a className="nav-link" href="Help" >Help</a></li>
+            </ul>
         );
     }
 }
