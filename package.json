@@ -4,6 +4,7 @@
   "description": "",
   "main": "webpack.config.js",
   "dependencies": {
+    "axios": "^0.15.1",
     "babel-loader": "^6.2.0",
     "babel-plugin-add-module-exports": "^0.1.2",
     "babel-plugin-react-html-attrs": "^2.0.0",
@@ -13,12 +14,14 @@
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
     "react": "^0.14.6",
+    "react-datepicker": "^0.34.0",
     "react-dom": "^0.14.6",
+    "style-loader": "^0.13.1",
     "webpack": "^1.12.9",
-    "webpack-dev-server": "^1.14.1",
-    "axios": "^0.15.1"
+    "webpack-dev-server": "^1.14.1"
   },
   "devDependencies": {
+    "css-loader": "^0.26.0"
   },
   "scripts": {
     "dev": "webpack-dev-server --inline --hot",
