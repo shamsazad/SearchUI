@@ -1,4 +1,7 @@
-
+.title{
+    width:50px;
+    height:40px;
+}
 .search-bar {
     width: 700px;
     margin-left: 200px;

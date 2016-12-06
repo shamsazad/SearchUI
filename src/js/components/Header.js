@@ -12,7 +12,7 @@ export default class Header extends React.Component {
                     <a className="navbar-brand" href="#">
                         <Title />
                     </a>
-                <Login/>
+                    <Login/>
             </nav>
         );
     }
