@@ -8,8 +8,6 @@ import moment from 'moment';
 
 const url = 'http://localhost:8081/yuul/search/';
 
-require('react-datepicker/dist/react-datepicker.css');
-
 export default class SearchBar extends React.Component {
     constructor(props) {
         super(props);
@@ -44,18 +42,16 @@ export default class SearchBar extends React.Component {
     }
     render() {
         return(
-            <div className="container">
-                <form className="form-inline">
-                    <input type = "text" className ="form-control" name = "location" placeholder = "Search City" required onChange={this.handleChange} />
-                    <span className="input-group-addon">
+            <form className="form-inline">
+                <input type = "text" className ="form-control" name = "location" placeholder = "Search City" required onChange={this.handleChange} />
+                <span className="input-group-addon">
                          <DatePicker
-                                     selected={this.state.startDate}
-                                     onChange={this.handleDateChange} />
+                             selected={this.state.startDate}
+                             onChange={this.handleDateChange} />
                     </span>
-                        <input type = "submit" value="Search" onClick={this.handleSubmit}/>
+                <input type = "submit" value="Search" onClick={this.handleSubmit}/>
 
-                </form>
-            </div>
+            </form>
         );
     }
 }
