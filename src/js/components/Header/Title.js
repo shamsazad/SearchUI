@@ -6,7 +6,7 @@ import React from "react";
 export default class Title extends React.Component {
     render() {
         return (
-            <p className="title">Search Appartment</p>
+            <img className="title" src="../../../images/logo.png"></img>
         );
     }
 }
