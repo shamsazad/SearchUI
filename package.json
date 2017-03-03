@@ -23,7 +23,7 @@
   "devDependencies": {
     "autoprefixer": "^6.7.6",
     "babel-loader": "^6.3.2",
-    "css-loader": "^0.26.0",
+    "css-loader": "^0.26.2",
     "cssnano": "^3.10.0",
     "extract-text-webpack-plugin": "^2.0.0",
     "postcss-animation": "0.0.11",
