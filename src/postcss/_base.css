@@ -20,7 +20,6 @@ body {
 
 .container {
     width: $container-default-width;
-    max-width: $container-max-width;
     margin: 0 auto;
 }
 

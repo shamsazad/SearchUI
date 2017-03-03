@@ -1,0 +1,33 @@
+.nav {
+    margin-top: 1.75rem;
+
+    .nav-elements {
+        display: flex;
+
+        .branding {
+            max-width: 100px;
+            width: 30%;
+        }
+
+        .navbar {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-end;
+            align-content: flex-end;
+            flex-wrap: wrap;
+            line-height: 150%;
+            list-style-type: none;
+            width: 70%;
+        }
+        a {
+            font-weight: $font-weight-bold;
+            color: black;
+            text-decoration: none;
+            padding: 0 1rem;
+        }
+        a:hover {
+            color: $yellow;
+        }
+    }
+}

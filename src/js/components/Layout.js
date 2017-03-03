@@ -10,10 +10,12 @@ import SearchBar from "./SearchBar";
 export default class Layout extends React.Component {
     render() {
         return (
-            <div className="container">
+            <div>
                 <Header />
-                <SearchBar />
-                <Footer />
+                <div className="container">
+                    <SearchBar />
+                    <Footer />
+                </div>
             </div>
         );
     }
