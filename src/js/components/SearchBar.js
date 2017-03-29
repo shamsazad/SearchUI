@@ -44,15 +44,15 @@ export default class SearchBar extends React.Component {
         return(
             <form className="searchbar">
                 <input type = "text" className ="input-search" name = "location" placeholder = "Search City" required onChange={this.handleChange} />
-                <div>
-                <span>
+                <div className="date-area">
+                    <span>
                          <DatePicker
                              selected={this.state.startDate}
                              onChange={this.handleDateChange}
-                             className="input-date"     />
-                </span>
+                             className="input-date" />
+                    </span>
                 </div>
-                <input type = "submit" value="Search" className="input-date" onClick={this.handleSubmit}/>
+                <input type = "submit" value="Search" className="search-button" onClick={this.handleSubmit}/>
 
             </form>
         );
