@@ -1,0 +1,21 @@
+.searchbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-height: 50px;
+    line-height: 300%;
+}
+
+.input-search {
+    flex: auto;
+    max-width: 70%;
+    line-height: 300%;
+    font-size: 2.0rem;
+
+}
+
+.input-date {
+    max-width: 100%;
+    line-height: 300%;
+    font-size: 2.0rem;
+}

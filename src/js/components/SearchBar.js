@@ -42,14 +42,17 @@ export default class SearchBar extends React.Component {
     }
     render() {
         return(
-            <form className="form-inline">
-                <input type = "text" className ="form-control" name = "location" placeholder = "Search City" required onChange={this.handleChange} />
-                <span className="input-group-addon">
+            <form className="searchbar">
+                <input type = "text" className ="input-search" name = "location" placeholder = "Search City" required onChange={this.handleChange} />
+                <div>
+                <span>
                          <DatePicker
                              selected={this.state.startDate}
-                             onChange={this.handleDateChange} />
-                    </span>
-                <input type = "submit" value="Search" onClick={this.handleSubmit}/>
+                             onChange={this.handleDateChange}
+                             className="input-date"     />
+                </span>
+                </div>
+                <input type = "submit" value="Search" className="input-date" onClick={this.handleSubmit}/>
 
             </form>
         );
