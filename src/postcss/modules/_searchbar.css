@@ -1,0 +1,22 @@
+.searchbar {
+    margin-top: 20px;
+    display: flex;
+    font-size: 2rem;
+}
+
+.input-search {
+    flex: 8;
+    font-size: 2rem;
+}
+
+.date-area {
+    flex: 2;
+}
+.input-date {
+    font-size: 2rem;
+    width: 100%;
+}
+.search-button {
+    flex: 1;
+    font-size: 2rem;
+}

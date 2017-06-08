@@ -17,7 +17,14 @@ module.exports = {
           plugins: ['react-html-attrs', 'transform-class-properties', 'transform-decorators-legacy'],
         }
       },
-      {test: /(\.css|\.sass|\.scss)$/, loaders: ['style', 'css?sourceMap']},
+      {
+        test: /(\.css|\.sass|\.scss)$/,
+        loaders: [
+            'style-loader',
+            'css-loader?importLoaders=1',
+            'postcss-loader'
+        ]
+      },
     ]
   },
   output: {

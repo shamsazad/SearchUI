@@ -12,8 +12,10 @@ export default class Layout extends React.Component {
         return (
             <div>
                 <Header />
-                <SearchBar />
-                <Footer />
+                <div className="container">
+                    <SearchBar />
+                    <Footer />
+                </div>
             </div>
         );
     }
