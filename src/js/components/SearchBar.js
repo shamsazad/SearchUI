@@ -1,60 +1,32 @@
-/**
- * Created by bdesai on 2016-09-15.
- */
 import React from "react";
-import axios from "axios";
-import DatePicker from "react-datepicker";
-import moment from 'moment';
-
-const url = 'http://localhost:8081/yuul/search/';
+import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 export default class SearchBar extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            location: "Montreal",
-            startDate: moment(),
-        }
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleDateChange = this.handleDateChange.bind(this);
+        this.state = { address: 'Montreal, QC' };
+        this.onChange = (address) => this.setState( { address })
     }
 
-    handleChange(e) {
-        this.setState({[e.target.name]:e.target.value});
+    handleFormSubmit = (event) => {
+        event.preventDefault();
+
+        geocodeByAddress(this.state.address)
+            .then(results => getLatLng(results[0]))
+            .then(latLng => console.log('Success', latLng))
+            .catch(error => console.log('Error', error))
     }
 
-    handleDateChange(date) {
-        this.setState({
-            startDate: date
-        });
-    }
-
-    handleSubmit () {
-        console.log(this.state);
-        axios.post(url,
-            this.state
-        ).then(function (response) {
-            dispatch(addPost(response.body))
-        }).catch(function (response) {
-            request = response;
-        });
-    }
     render() {
-        return(
-            <form className="searchbar">
-                <input type = "text" className ="input-search" name = "location" placeholder = "Search City" required onChange={this.handleChange} />
-                <div className="date-area">
-                    <span>
-                         <DatePicker
-                             selected={this.state.startDate}
-                             onChange={this.handleDateChange}
-                             className="input-date" />
-                    </span>
-                </div>
-                <input type = "submit" value="Search" className="search-button" onClick={this.handleSubmit}/>
+        const inputProps = {
+            value: this.state.address,
+            onChange: this.onChange,
+        }
 
+        return(
+            <form onSubmit={this.handleFormSubmit}>
+                <PlacesAutocomplete inputProps={inputProps}/>
             </form>
-        );
+        )
     }
 }
