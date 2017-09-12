@@ -18,8 +18,10 @@ module.exports = {
         }
       },
       {
-        test: /(\.css|\.sass|\.scss)$/,
+        test: /(\.css|\.sass|\.scss|\.png)$/,
         loaders: [
+            'file-loader?hash=sha512&digest=hex&name=[hash].[ext]',
+            'image-webpack-loader',
             'style-loader',
             'css-loader?importLoaders=1',
             'postcss-loader'

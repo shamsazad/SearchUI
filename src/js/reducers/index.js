@@ -1,3 +1,7 @@
-/**
- * Created by bdesai on 2017-08-31.
- */
+import { combineReducers } from 'redux';
+
+const rootReducer = combineReducers({
+    state: (state = {}) => state
+});
+
+export default rootReducer;
