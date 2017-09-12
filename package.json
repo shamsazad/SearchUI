@@ -36,7 +36,8 @@
     "image-webpack-loader": "^3.4.2",
     "postcss-animation": "0.0.11",
     "postcss-loader": "^1.3.3",
-    "precss": "^1.4.0"
+    "precss": "^1.4.0",
+    "react-router-dom": "^4.2.2"
   },
   "scripts": {
     "dev": "webpack-dev-server --inline --hot",
