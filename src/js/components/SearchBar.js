@@ -1,7 +1,9 @@
-import React from "react";
+import React, { Component } from "react";
+import { Field, reduxForm } from 'redux-form';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
+import { searchCity } from '../actions/index';
 
-export default class SearchBar extends React.Component {
+class SearchBar extends Component {
     constructor(props) {
         super(props);
         this.state = { address: 'Montreal, QC' };
@@ -18,15 +20,16 @@ export default class SearchBar extends React.Component {
     }
 
     render() {
-        const inputProps = {
-            value: this.state.address,
-            onChange: this.onChange,
-        }
+        const { handleSubmit } = this.props;
 
         return(
-            <form onSubmit={this.handleFormSubmit}>
-                <PlacesAutocomplete inputProps={inputProps}/>
+            <form onSubmit={ handleFormSubmit }>
+                <Field name="searchCity" component={PlacesAutocomplete}/>
             </form>
         )
     }
 }
+
+export default reduxForm({
+    form: 'search'
+}, null, { searchCity })(SearchBar);

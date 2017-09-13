@@ -3,13 +3,14 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from 'redux';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import promise from 'redux-promise';
+
+import App from './components/app';
+import SearchBar from './components/SearchBar';
 
 import reducers from './reducers';
 import routes from './routes';
-
-require('../postcss/style.css');
-require('react-datepicker/dist/react-datepicker.css');
 
 const createStoreWithMiddleware = applyMiddleware(
     promise
@@ -17,6 +18,13 @@ const createStoreWithMiddleware = applyMiddleware(
 
 ReactDOM.render(
     <Provider store={createStoreWithMiddleware(reducers)}>
-        <Router routes={routes} />
+        <Router>
+        <main>
+            <Switch>
+                <Route exact path="/" component={App} />
+                <Route exact path="/" component={SearchBar} />
+            </Switch>
+        </main>
+        </Router>
     </Provider>
     , document.getElementById('.container'));
