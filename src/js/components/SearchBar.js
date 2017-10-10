@@ -7,13 +7,14 @@ class SearchBar extends Component {
 
     render() {
         const { handleSubmit } = this.props;
-        console.log(this.props);
         return(
-            <form onSubmit={ handleSubmit }>
+            <form onSubmit={ handleSubmit(searchCity) }>
                 <Field
                     name="placeSearch"
                     component={placeSearch}
+                    label="Address"
                 />
+                <button type="submit">Submit</button>
             </form>
         )
     }
@@ -21,4 +22,4 @@ class SearchBar extends Component {
 
 export default reduxForm({
     form: 'search'
-}, null, { searchCity })(SearchBar);
+})(SearchBar);
