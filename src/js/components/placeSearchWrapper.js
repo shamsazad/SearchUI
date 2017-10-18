@@ -19,6 +19,7 @@ export default class placeSearch extends Component {
         const inputProps = {
             value: value,
             onChange: handleChange,
+            placeholder: `What's your next Destination`,
             autoFocus: true,
         };
 

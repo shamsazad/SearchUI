@@ -8,9 +8,9 @@ class SearchBar extends Component {
     render() {
         const { handleSubmit } = this.props;
         return(
-            <form onSubmit={ handleSubmit(searchCity) } className="container-fluid">
-                <div className="row">
-                    <div className="form-group col-8">
+            <form onSubmit={ handleSubmit(searchCity) } className="container">
+                <div className="row justify-content-center">
+                    <div className="form-group col-7">
                         <Field
                             name="placeSearch"
                             component={placeSearch}

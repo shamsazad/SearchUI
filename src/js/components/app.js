@@ -9,9 +9,11 @@ export default class App extends Component {
             <div>
                 <Header/>
                 <div className="jumbotron">
-                    <SearchBar />
                 </div>
+                <SearchBar />
                 <div className="jumbotron jumbotron-fluid">
+                </div>
+                <div className="jumbotron">
                 </div>
                 <Footer/>
             </div>
