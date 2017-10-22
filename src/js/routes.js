@@ -6,7 +6,8 @@ import SearchBar from './components/SearchBar';
 
 const RouteManage = () => (
     <main>
-        <Route exact path="/" component={App} />
+        <Route path="/" component={App} />
+        <Route path="/search" component={SearchBar}/>
     </main>
 );
 
