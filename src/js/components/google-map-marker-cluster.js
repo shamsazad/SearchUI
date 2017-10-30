@@ -1,5 +1,8 @@
 import React from "react";
 import { compose, withProps, withState, withHandlers } from "recompose";
+import { connect } from "react-redux";
+import { bindActionCreators } from 'redux';
+import { changeBounds } from '../actions/index';
 import {
     withGoogleMap,
     GoogleMap,
@@ -9,31 +12,48 @@ import {
 
 import MarkerClusterer from "react-google-maps/lib/components/addons/MarkerClusterer";
 
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({ changeBounds }, dispatch);
+}
 const MapWithAMarkerClusterer = compose(
     withProps({
         containerElement: <div style={{ height: `400px` }} />,
         mapElement: <div style={{ height: `100%` }} />,
     }),
-    withState('bounds', 'onBoundsChanged'),
-    withHandlers(() => {
+    connect(null, mapDispatchToProps),
+    withState('onBoundsChanged'),
+    withHandlers((props) => {
         const refs = {
             map: undefined,
-        }
+        };
         return {
             onMapMounted: () => ref => {
                 refs.map = ref
             },
             onBoundsChanged: ({ onBoundsChanged }) => () => {
-                console.log(refs.map.getBounds());
-                onBoundsChanged(refs.map.getBounds())
+                const bounds = refs.map.getBounds();
+                const ne = bounds.getNorthEast();
+                const sw = bounds.getSouthWest();
+                const boundsObject = {
+                    "northeast": {
+                        "lat": ne.lat(),
+                        "lng": ne.lng()
+                    },
+                    "southwest": {
+                        "lat": sw.lat(),
+                        "lng": sw.lng()
+                    }
+                };
+                console.log(boundsObject);
+                props.changeBounds(boundsObject);
             }
         }
     }),
     withGoogleMap
 )(props =>
     <GoogleMap
-        defaultZoom={10}
-        defaultCenter={{ lat: props.markers.lat, lng: props.markers.lng }}
+        defaultZoom={11}
+        defaultCenter={{ lat: props.markers.location.lat, lng: props.markers.location.lng }}
         ref={props.onMapMounted}
         onBoundsChanged={props.onBoundsChanged}
     >
@@ -42,10 +62,10 @@ const MapWithAMarkerClusterer = compose(
             enableRetinaIcons
             gridSize={60}
         >
-            {props.markers.photos.map(marker => (
+            {props.markers.locationList.map(marker => (
                 <Marker
-                    key={marker.photo_id}
-                    position={{ lat: marker.latitude, lng: marker.longitude }}
+                    key={marker.place_id}
+                    position={{ lat: marker.lat, lng: marker.lng }}
                 />
             ))}
         </MarkerClusterer>

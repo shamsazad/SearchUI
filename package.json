@@ -22,6 +22,7 @@
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
     "redux": "^3.7.2",
+    "redux-debounced": "^0.4.0",
     "redux-form": "^7.0.4",
     "redux-promise": "^0.5.3",
     "style-loader": "^0.13.1",

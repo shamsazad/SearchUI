@@ -11,6 +11,6 @@ import Footer from "./Footer";
              <Footer/>
          </div>
         )
-}
+};
 
 export default App;
