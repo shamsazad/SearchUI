@@ -17,7 +17,7 @@ function mapDispatchToProps(dispatch) {
 }
 const MapWithAMarkerClusterer = compose(
     withProps({
-        containerElement: <div style={{ height: `400px` }} />,
+        containerElement: <div style={{ height: `700px` }} />,
         mapElement: <div style={{ height: `100%` }} />,
     }),
     connect(null, mapDispatchToProps),
@@ -52,7 +52,7 @@ const MapWithAMarkerClusterer = compose(
     withGoogleMap
 )(props =>
     <GoogleMap
-        defaultZoom={11}
+        defaultZoom={14}
         defaultCenter={{ lat: props.markers.location.lat, lng: props.markers.location.lng }}
         ref={props.onMapMounted}
         onBoundsChanged={props.onBoundsChanged}

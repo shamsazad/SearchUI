@@ -7,7 +7,11 @@ class PropertyList extends PureComponent {
     render() {
         console.log(this.props.properties);
         return (
-            <MapWithAMarkerClusterer markers={this.props.properties} />
+            <div className="row">
+                <div className="col-8">
+                    <MapWithAMarkerClusterer markers={this.props.properties} />
+                </div>
+            </div>
         )
     }
 }

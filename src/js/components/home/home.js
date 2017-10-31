@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchBar from '../SearchBar';
+import Footer from "../Footer";
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
             </div>
             <div className="jumbotron">
             </div>
+            <Footer/>
         </div>
     )
 };
