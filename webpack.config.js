@@ -18,20 +18,29 @@ module.exports = {
         }
       },
       {
-        test: /(\.css|\.sass|\.scss|\.png)$/,
+        test: /(\.scss|\.css|\.scss)$/,
+        loaders: [
+          'style-loader',
+          'css-loader?importLoaders=1',
+          'postcss-loader'
+        ]
+      },
+      {
+        test: /(\.png|\.jpg)$/,
         loaders: [
             'file-loader?hash=sha512&digest=hex&name=[hash].[ext]',
             'image-webpack-loader',
-            'style-loader',
-            'css-loader?importLoaders=1',
-            'postcss-loader'
         ]
       },
     ]
   },
   output: {
     path: __dirname,
-    filename: "client.min.js"
+    filename: "client.min.js",
+    publicPath: '/'
+  },
+  devServer: {
+    historyApiFallback: true,
   },
   plugins: debug ? [] : [
     new webpack.optimize.DedupePlugin(),

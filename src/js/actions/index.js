@@ -30,3 +30,12 @@ export function changeBounds(props) {
     }
 }
 
+export function postAds(props) {
+    console.log(props);
+    const request = axios.post(`${URL}/postAdd`, props);
+
+    return {
+        type: SEARCH_CITY,
+        payload: request
+    }
+}

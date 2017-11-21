@@ -1,0 +1,7 @@
+node_modules/
+.idea/
+client.min.js
+*.css
+*.jpg
+*.png
+npm-debug.log
